@@ -1,8 +1,11 @@
 import React from 'react';
 import Slider from '../Components/Slider/Slider';
-import LatestProducts from '../Components/LatestProducts/LatestProducts';
+import LatestProducts from '../Components/LatestProducts/LatestCrops';
 import HowItworks from '../Components/HowItworks/HowItworks';
 import News from '../Components/News/News';
+import FertilizerTools from '../Components/FertilizerTools/FertilizerTools';
+import Getupdates from '../Components/Getupdates/Getupdates';
+import Footer from '../Components/Footer/Footer';
 
 const Home = () => {
     return (
@@ -11,6 +14,9 @@ const Home = () => {
             <LatestProducts></LatestProducts>
             <HowItworks></HowItworks>
             <News></News>
+            <FertilizerTools></FertilizerTools>
+            <Getupdates></Getupdates>
+            <Footer></Footer>
         </div>
     );
 };
