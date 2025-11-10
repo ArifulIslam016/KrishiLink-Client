@@ -3,6 +3,10 @@ import Register from "../Pages/Register";
 import Login from "../Pages/LoginForm";
 import MainLayout from "../Layout/MainLayout";
 import Home from "../Pages/Home";
+import ForgetFrom from "../Pages/ForgetFrom";
+import PrivateProvider from "../Utilitys/PrivateProvider";
+import Addcrops from "../Pages/Addcrops";
+import AllCrops from "../Pages/AllCrops";
 
 
 
@@ -12,6 +16,12 @@ export const router=createBrowserRouter([{
     children:([
         {path:'/',
             Component:Home
+        },{
+            path:'/allcrops',
+            Component:AllCrops
+        },{
+            path:'/addcrops',
+            element: <PrivateProvider><Addcrops></Addcrops></PrivateProvider>
         }
     ])
 },{
@@ -21,5 +31,9 @@ export const router=createBrowserRouter([{
 ,{
     path:'/register',
     Component:Register
+}
+,{
+    path:'/forgetPassword',
+    Component:ForgetFrom
 }
 ])
