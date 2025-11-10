@@ -16,7 +16,7 @@ const Home = () => {
             <News></News>
             <FertilizerTools></FertilizerTools>
             <Getupdates></Getupdates>
-            <Footer></Footer>
+            {/* <Footer></Footer> */}
         </div>
     );
 };
