@@ -14,7 +14,7 @@ const CropCard = ({crop}) => {
       owner,
     }=crop
     return (
-     <div className="bg-gray-200 rounded-xl shadow-md hover:shadow-xl transition p-5 flex flex-col">
+     <div className="bg-gray-200 rounded-xl shadow-md hover:shadow-xl transition p-5 m-2 flex flex-col">
   
     <div className="h-40 w-full mb-4 overflow-hidden rounded-lg">
       <img
@@ -35,7 +35,7 @@ const CropCard = ({crop}) => {
     </p>
 
     {/* View Details Button */}
-    <button className="mt-auto bg-green-500 text-white font-medium py-2 rounded-lg hover:bg-green-600 transition">
+    <button className="mt-auto bg-gradient-to-r from-[#166534] via-[#22C55E] to-[#A3E635] text-white font-medium py-2 rounded-lg hover:bg-green-600 transition">
       View Details
     </button>
   </div>
