@@ -3,6 +3,8 @@ import { useParams } from 'react-router';
 import AuthContext from '../AuthContext/Authcontext';
 import useSecureInstance from '../Hooks/SecureInstance';
 import LoadingPage from './LoadingPage';
+import CreateInterest from '../Components/CreateInterest/createInterest';
+import Interest from '../Components/Interests/Interest';
 
 const CropDetails = () => {
     const {user,loading}=use(AuthContext)
@@ -32,7 +34,7 @@ const CropDetails = () => {
       owner,
     }=CropInfo
     return (
-    <div>
+    <div className='max-w-[1440px] mx-auto'>
             <div className="max-w-[900px] mx-auto bg-white rounded-2xl shadow-lg p-6 mt-10">
       <div className="w-full h-80 overflow-hidden rounded-xl mb-6">
         <img
@@ -58,6 +60,11 @@ const CropDetails = () => {
           Posted by <span className="font-medium text-gray-800">{owner?.ownerName}</span>
         </p>
       </div>
+    </div>
+    <div className=' mx-auto bg-white rounded-2xl shadow-lg p-6 mt-10'>
+        {
+        owner?.ownerEmail===user.email?<Interest interest={interest} ></Interest>: <CreateInterest CropQuantity={quantity} owner={owner} id={CropInfo._id} user={user} ></CreateInterest>
+    }
    
     </div>
     </div>

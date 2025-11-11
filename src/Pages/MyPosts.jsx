@@ -92,23 +92,6 @@ const handleDelete=(id)=>{
   
 
 
-/***Swal.fire({
-  title: "Are you sure?",
-  text: "You won't be able to revert this!",
-  icon: "warning",
-  showCancelButton: true,
-  confirmButtonColor: "#3085d6",
-  cancelButtonColor: "#d33",
-  confirmButtonText: "Yes, delete it!"
-}).then((result) => {
-  if (result.isConfirmed) {
-    Swal.fire({
-      title: "Deleted!",
-      text: "Your file has been deleted.",
-      icon: "success"
-    });
-  }
-}); */
   return (
     <div className="max-w-[1440px] mx-auto py-10">
       <h1 className="text-2xl">Total {myPost.length}Post Found</h1>
@@ -153,7 +136,7 @@ const handleDelete=(id)=>{
                     ৳ {post.pricePerUnit}/{post.unit}
                   </td>
                   <th>
-                    <div className="space-x-2">
+                    <div className="space-x-2 flex">
                       <button onClick={()=>handleEdit(post)} className="btn btn-outline text-gray-500 btn-xs">
                         <MdModeEdit />
                         Edit
