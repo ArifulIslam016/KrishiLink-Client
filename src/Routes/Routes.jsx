@@ -8,6 +8,7 @@ import PrivateProvider from "../Utilitys/PrivateProvider";
 import Addcrops from "../Pages/Addcrops";
 import AllCrops from "../Pages/AllCrops";
 import MyPosts from "../Pages/MyPosts";
+import CropDetails from "../Pages/CropDetails";
 
 export const router = createBrowserRouter([
   {
@@ -34,7 +35,10 @@ export const router = createBrowserRouter([
             <MyPosts></MyPosts>
           </PrivateProvider>
         ),
-      },
+      },{
+            path:'/detailed-post/:id',
+            element: <PrivateProvider><CropDetails></CropDetails></PrivateProvider>
+        }
     ],
   },
   {

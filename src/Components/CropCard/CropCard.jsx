@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const CropCard = ({crop}) => {
     const {
+        _id,
       name,
       type,
       pricePerUnit,
@@ -35,9 +37,9 @@ const CropCard = ({crop}) => {
     </p>
 
     {/* View Details Button */}
-    <button className="mt-auto bg-gradient-to-r from-[#166534] via-[#22C55E] to-[#A3E635] text-white font-medium py-2 rounded-lg hover:bg-green-600 transition">
+    <Link to={`/detailed-post/${_id}`} className="mt-auto text-center bg-gradient-to-r from-[#166534] via-[#22C55E] to-[#A3E635] text-white font-medium py-2 rounded-lg hover:bg-green-600 transition">
       View Details
-    </button>
+    </Link>
   </div>
     );
 };
