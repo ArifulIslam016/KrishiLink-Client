@@ -1,12 +1,17 @@
 import React from "react";
 
 const Interest = ({ interest }) => {
-  const { userEmail, userName, quantity, message, Status } = interest;
+  const handleAccept=(cropId)=>{
+
+  }
+  const handleReject=(cropId,interestId)=>{
+
+  }
   return (
     <div className="max-w-[1200px] mx-auto">
-      <h1>Total {Interest.length} interst found</h1>
-      <div className="overflow-x-auto">
-        <table className="table">
+      <h1 className="text-2xl font-bold">Total {interest.length} interst found</h1>
+      {interest.length===0?<h1 className="text-4xl font-extrabold text-center my-10 text-gray-700">No Interest Yet</h1>: <div className="overflow-x-auto">
+        <table className="table lg:ml-10">
           {/* head */}
           <thead>
             <tr>
@@ -14,6 +19,7 @@ const Interest = ({ interest }) => {
               <th>Buyer Name</th>
               <th>Quantity</th>
               <th>Status</th>
+              <th>Message</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -43,15 +49,18 @@ const Interest = ({ interest }) => {
                     <br />
                   </td>
                   <td>
-                    {singleInterest.Status}
+                    {singleInterest.Status=="pending"?<h1 className="bg-amber-300 rounded-2xl w-fit px-2  pb-1 ">{singleInterest.Status}</h1>:<h1></h1>}
+                  </td>
+                  <td>
+                    {singleInterest.message.length<10?singleInterest.message.slice(0,10):singleInterest.message}
                   </td>
                   <th>
                     <div className="space-x-2 flex">
-                                  <button  className="btn btn-outline text-green-500 btn-xs">
+                                  <button onClick={()=>handleAccept(singleInterest.CropId)}  className="btn btn-outline text-green-500 btn-xs">
                                     
                                     Accept
                                   </button>
-                                  <button  className="btn btn-outline text-red-500 btn-xs">
+                                  <button onClick={()=>handleReject(singleInterest.CropId,singleInterest._id)}  className="btn btn-outline text-red-500 btn-xs">
                                    
                                    Reject
                                   </button>
@@ -62,7 +71,8 @@ const Interest = ({ interest }) => {
             })}
           </tbody>
         </table>
-      </div>
+      </div>}
+     
     </div>
   );
 };
