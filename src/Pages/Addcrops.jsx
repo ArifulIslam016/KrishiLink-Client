@@ -35,8 +35,12 @@ const Addcrops = () => {
       interest,
       owner,
     };
-    Instance.post("/CreateCrops", newCrop).then(() => {
+    Instance.post("/CreateCrops", newCrop).then((data) => {
+        if(data.data.insertedId){
+            navigate('/my-posts')
       e.target.reset()
+        }
+        
     });
      
   };

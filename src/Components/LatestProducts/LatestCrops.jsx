@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import useSecureInstance from "../../Hooks/SecureInstance";
 import CropCard from "../CropCard/CropCard";
+import { Link } from "react-router";
 
 const LatestProducts = () => {
   const Instance = useSecureInstance();
@@ -25,6 +26,9 @@ const LatestProducts = () => {
           <CropCard key={singleCrop._id} crop={singleCrop}></CropCard>
         ))}
       </div>
+  <div className="flex justify-center">
+        <Link to={'/allcrops'} className="btn bg-gradient-to-r from-[#166534] via-[#22C55E] to-[#A3E635] text-white  px-4 py-2 w-fit">View All</Link>
+  </div>
     </div>
   );
 };
