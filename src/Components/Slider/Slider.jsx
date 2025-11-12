@@ -12,7 +12,7 @@ import { A11y, Autoplay, Navigation, Pagination, Scrollbar } from 'swiper/module
 const Slider = () => {
     return (
 
-    <div className='py-14 bg-gradient-to-r from-[#166534] via-[#22C55E] to-[#A3E635] rounded-3xl'>
+    <div className='py-14 mt-10 bg-gradient-to-r from-[#166534] via-[#22C55E] to-[#A3E635] rounded-3xl'>
       <Swiper  navigation={true}      modules={[Navigation, Pagination, Scrollbar, A11y,Autoplay,]}
       spaceBetween={50}
       slidesPerView={1}

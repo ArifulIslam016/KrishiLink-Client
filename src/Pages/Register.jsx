@@ -25,18 +25,18 @@ const Register = () => {
       displayName: name,
       photoURL: photoUrl,
     };
-    // if (password.length < 6) {
-    //   setErr("Password must be 6 charecters");
-    //   return;
-    // }
-    // if (!/[a-z]/.test(password)) {
-    //   setErr("Passwors Should be contain atleast 1 locarcase");
-    //   return;
-    // }
-    // if (!/[A-Z]/.test(password)) {
-    //   setErr("Passwors Should be contain atleast 1 uppercase");
-    //   return;
-    // }
+    if (password.length < 6) {
+      setErr("Password must be 6 charecters");
+      return;
+    }
+    if (!/[a-z]/.test(password)) {
+      setErr("Passwors Should be contain atleast 1 locarcase");
+      return;
+    }
+    if (!/[A-Z]/.test(password)) {
+      setErr("Passwors Should be contain atleast 1 uppercase");
+      return;
+    }
     CreateUser(email, password)
       .then(() =>
         updateUserProfile(updatedProfile)

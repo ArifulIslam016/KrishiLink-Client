@@ -11,25 +11,25 @@ const Navbar = () => {
     <>
       {user ? (
         <>
-          <NavLink className='mr-3 font-semibold text-gray-800' to={"/"}>Home</NavLink>
-          <NavLink className='mr-3 font-semibold text-gray-800' to={"/allcrops"}>All crops</NavLink>
-          <NavLink className='mr-3 font-semibold text-gray-800' to={"/profile"}>Profile</NavLink>
-          <NavLink className='mr-3 font-semibold text-gray-800' to={"/addcrops"}>Add crops</NavLink>
-          <NavLink className='mr-3 font-semibold text-gray-800' to={"/my-posts"}>My Posts</NavLink>
-          <NavLink className='mr-3 font-semibold text-gray-800' to={"/my-interest"}>My interests</NavLink>
+          <NavLink className='mr-3 font-semibold text-[#FFFFFF]' to={"/"}>Home</NavLink>
+          <NavLink className='mr-3 font-semibold text-[#FFFFFF]' to={"/allcrops"}>All crops</NavLink>
+          <NavLink className='mr-3 font-semibold text-[#FFFFFF]' to={"/profile"}>Profile</NavLink>
+          <NavLink className='mr-3 font-semibold text-[#FFFFFF]' to={"/addcrops"}>Add crops</NavLink>
+          <NavLink className='mr-3 font-semibold text-[#FFFFFF]' to={"/my-posts"}>My Posts</NavLink>
+          <NavLink className='mr-3 font-semibold text-[#FFFFFF]' to={"/my-interest"}>My interests</NavLink>
         </>
       ) : (
         <>
-          <NavLink className='mr-3 font-semibold text-gray-800' to={"/"}>Home</NavLink>
-          <NavLink className='mr-3 font-semibold text-gray-800' to={"/login"}>Login</NavLink>
-          <NavLink className='mr-3 font-semibold text-gray-800' to={"/allcrops"}>All crops</NavLink>
-          <NavLink className='mr-3 font-semibold text-gray-800' to={"/register"}>Register</NavLink>
+          <NavLink className='mr-3 font-semibold text-[#FFFFFF]' to={"/"}>Home</NavLink>
+          <NavLink className='mr-3 font-semibold text-[#FFFFFF]' to={"/login"}>Login</NavLink>
+          <NavLink className='mr-3 font-semibold text-[#FFFFFF]' to={"/allcrops"}>All crops</NavLink>
+          <NavLink className='mr-3 font-semibold text-[#FFFFFF]' to={"/register"}>Register</NavLink>
         </>
       )}
     </>
   );
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-[#795548] text-[#FFFFFF] shadow-sm">
       <div className="navbar-start">
         <div className="dropdown z-10">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -58,8 +58,9 @@ const Navbar = () => {
         </div>
         <Link
           to={"/"}
-          className="btn btn-ghost text-xl md:text-3xl lg:text-4xl font-extrabold bg-gradient-to-r from-[#166534] via-[#22C55E] to-[#A3E635] bg-clip-text text-transparent"
+          className="btn btn-ghost text-xl md:text-3xl flex items-center lg:text-4xl font-extrabold bg-gradient-to-r from-[#166534] via-[#22C55E] to-[#A3E635] bg-clip-text text-transparent"
         >
+           <img src="https://i.ibb.co.com/b5JBNTz4/krishi.png" className="w-10 rounded-full" alt="" />
           Krishi Link
         </Link>
       </div>
@@ -70,14 +71,14 @@ const Navbar = () => {
         {user ? (
           <Link
             onClick={hanldesingOut}
-            className="btn bg-gradient-to-r from-[#166534] via-[#22C55E] to-[#A3E635] text-white "
+            className="btn bg-gradient-to-r outline-0 border-0 from-[#166534] via-[#22C55E] to-[#A3E635] text-white "
           >
             Logout
           </Link>
         ) : (
           <Link
             to={"login"}
-            className="btn bg-gradient-to-r from-[#166534] via-[#22C55E] to-[#A3E635] text-white "
+            className="btn outline-0 border-0 bg-gradient-to-r from-[#166534] via-[#22C55E] to-[#A3E635] text-white  "
           >
             Login
           </Link>

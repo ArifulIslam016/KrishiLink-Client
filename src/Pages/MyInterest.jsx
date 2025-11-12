@@ -109,7 +109,7 @@ const MyInterest = () => {
                     <th>{index + 1}</th>
                     <td>{crop.owner?.ownerName}</td>
                     <td>
-                      {crop.name}
+                    <Link to={`/detailed-post/${myInterest.CropId}`}>  {crop.name}</Link>
                       <br />
                     </td>
                     <td>
