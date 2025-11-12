@@ -1,15 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
+import useSecureInstance from "../../Hooks/SecureInstance";
 
 const Interest = ({ interest }) => {
+    console.log(interest)
+    const [accpetedInterst, setAcceptedInteres]=useState(interest)
+    console.log(accpetedInterst)
+     console.log(accpetedInterst)
+    const Instance=useSecureInstance()
   const handleAccept=(cropId)=>{
-
+    const afteraccept=interest
+        afteraccept[0].Status='Accepted'
+    Instance.put('/iterest-update',afteraccept[0]).then(data=>{
+        console.log(data.data)
+        setAcceptedInteres(afteraccept)
+    }).catch(err=>{
+        console.log(err)    
+    })
+    
   }
   const handleReject=(cropId,interestId)=>{
 
   }
+  console.log(accpetedInterst)
   return (
     <div className="max-w-[1200px] mx-auto">
-      <h1 className="text-2xl font-bold">Total {interest.length} interst found</h1>
+      <h1 className="text-2xl font-bold">Total {accpetedInterst.length} interst found</h1>
       {interest.length===0?<h1 className="text-4xl font-extrabold text-center my-10 text-gray-700">No Interest Yet</h1>: <div className="overflow-x-auto">
         <table className="table lg:ml-10">
           {/* head */}
@@ -25,7 +40,7 @@ const Interest = ({ interest }) => {
           </thead>
           <tbody>
             {/* row 1 */}
-            {interest.map((singleInterest, index) => {
+            {accpetedInterst.map((singleInterest, index) => {
               return (
                 <tr key={singleInterest._id}>
                   <th>{index + 1}</th>
@@ -49,13 +64,13 @@ const Interest = ({ interest }) => {
                     <br />
                   </td>
                   <td>
-                    {singleInterest.Status=="pending"?<h1 className="bg-amber-300 rounded-2xl w-fit px-2  pb-1 ">{singleInterest.Status}</h1>:<h1></h1>}
+                    {singleInterest.Status=="pending"?<h1 className="bg-amber-300 rounded-2xl w-fit px-2  pb-1 ">{singleInterest.Status}</h1>:<h1 className="bg-green-500 rounded-2xl w-fit px-2  pb-1 ">{singleInterest.Status}</h1>}
                   </td>
                   <td>
-                    {singleInterest.message.length<10?singleInterest.message.slice(0,10):singleInterest.message}
+                    {singleInterest.message}
                   </td>
                   <th>
-                    <div className="space-x-2 flex">
+                    {singleInterest.Status=="pending"? <div className="space-x-2 flex">
                                   <button onClick={()=>handleAccept(singleInterest.CropId)}  className="btn btn-outline text-green-500 btn-xs">
                                     
                                     Accept
@@ -64,7 +79,8 @@ const Interest = ({ interest }) => {
                                    
                                    Reject
                                   </button>
-                                </div>
+                                </div>:<h1>No action availabe</h1>}
+                   
                   </th>
                 </tr>
               );

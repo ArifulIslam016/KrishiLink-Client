@@ -72,7 +72,7 @@ const MyInterest = () => {
                           {singleInterest.interest[0].Status}
                         </h1>
                       ) : (
-                        <h1></h1>
+                        <h1 className="bg-green-500 rounded-2xl w-fit px-2  pb-1">{singleInterest.interest[0].Status}</h1>
                       )}
                     </td>
 
