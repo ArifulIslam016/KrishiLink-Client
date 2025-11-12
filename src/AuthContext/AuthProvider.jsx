@@ -42,7 +42,7 @@ return signInWithEmailAndPassword(auth,email,Password)
         forgetPassword,
         loading
     }
-    console.log(user)
+    // console.log(user)
     return (
     
         <AuthContext value={userInfo}>{children}</AuthContext>

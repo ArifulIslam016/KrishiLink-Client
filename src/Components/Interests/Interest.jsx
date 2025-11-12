@@ -3,14 +3,15 @@ import useSecureInstance from "../../Hooks/SecureInstance";
 
 const Interest = ({ interest }) => {
     const [accpetedInterst, setAcceptedInteres]=useState(interest)
-    console.log(accpetedInterst)
-     console.log(accpetedInterst)
+    // console.log(accpetedInterst)
     const Instance=useSecureInstance()
-  const handleAccept=(cropId,interestId)=>{
-    const afteraccept=interest
+    
+  const handleAccept=(cropId,interestId,quantity)=>{
+
+    // const afteraccept=interest
         // afteraccept[0].Status='Accepted'
-        afteraccept.m
-    Instance.put('/iterest-update',afteraccept[0]).then(data=>{
+        
+    Instance.put('/iterest-update',{cropId,interestId,quantity}).then(data=>{
         console.log(data.data)
          setAcceptedInteres((prev) =>
         prev.map((singleInterest) =>
@@ -89,7 +90,7 @@ const Interest = ({ interest }) => {
                   </td>
                   <th>
                     {singleInterest.Status=="pending"? <div className="space-x-2 flex">
-                                  <button onClick={()=>handleAccept(singleInterest.CropId,singleInterest._id)}  className="btn btn-outline text-green-500 btn-xs">
+                                  <button onClick={()=>handleAccept(singleInterest.CropId,singleInterest._id,singleInterest.quantity)}  className="btn btn-outline text-green-500 btn-xs">
                                     
                                     Accept
                                   </button>
