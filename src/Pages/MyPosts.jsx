@@ -53,7 +53,7 @@ const MyPosts = () => {
       interest,
       owner,
     };
-    console.log(updatedCrop)
+    // console.log(updatedCrop)
     Instance.patch(`/updatePost/${clickedPost?._id}`,updatedCrop).then(data=>{
         const filtererdId=data.data.matchedCount
       if(filtererdId){
@@ -76,7 +76,7 @@ const handleDelete=(id)=>{
   confirmButtonText: "Delete"
 }).then((result)=>{
   Instance.delete(`/deletePost/${id}`).then(data=>{
-  console.log(data.data)
+//   console.log(data.data)
   if(data?.data?.deletedCount){
     const fileterAfterDel=myPost.filter(post=>post._id!==id)
     setMypost(fileterAfterDel)

@@ -23,7 +23,7 @@ const MyProfile = () => {
       displayName: name,
       photoURL: photoUrl,
     };
-    console.log(updatedProfile)
+    // console.log(updatedProfile)
     updateUserProfile(updatedProfile).then(()=>{
         toast("ProfileUpdated Updated")
          ref.current.close()

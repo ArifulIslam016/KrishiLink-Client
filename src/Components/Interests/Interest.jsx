@@ -12,14 +12,14 @@ const Interest = ({ interest }) => {
         // afteraccept[0].Status='Accepted'
         
     Instance.put('/iterest-update',{cropId,interestId,quantity}).then(data=>{
-        console.log(data.data)
+        // console.log(data.data)
          setAcceptedInteres((prev) =>
         prev.map((singleInterest) =>
           singleInterest._id === interestId ? { ...singleInterest, Status: "accepted" } : singleInterest
         )
       );
     }).catch(err=>{
-        console.log(err)    
+        // console.log(err)    
     })
     
   }
@@ -27,13 +27,15 @@ const Interest = ({ interest }) => {
     Instance.put('/reject-Update',{
         CropId,interestId
     }).then((data)=>{
-        console.log(data)
+        // console.log(data)
         setAcceptedInteres((prev) =>
         prev.map((singleInterest) =>
           singleInterest._id === interestId ? { ...singleInterest, Status: "rejected" } : singleInterest
         )
       );
-    }).catch(err=>console.log(err))
+    }).catch(()=>{
+        //
+    })
   }
 //   console.log(accpetedInterst)
   return (

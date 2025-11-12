@@ -13,7 +13,7 @@ const MyInterest = () => {
   const [sortmethod, SetsortMethod] = useState(null);
   const Instance = useSecureInstance();
   useEffect(() => {
-    Instance.get("allcrops").then((data) => {
+    Instance.get("/allcrops").then((data) => {
       setFetchLoading(false);
       const userInterestedCropdata = data.data.filter((crops) =>
         crops.interest?.some((crop) => crop.userEmail === user.email)

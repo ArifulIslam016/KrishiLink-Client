@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const Instance=axios.create({
-    baseURL:'http://localhost:3000'
+    baseURL:'https://krishi-link-server-one.vercel.app/'
 })
 import React from 'react';
 

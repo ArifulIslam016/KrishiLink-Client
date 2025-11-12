@@ -44,7 +44,9 @@ const Register = () => {
             toast.success("Registration Sucessful!")
              navigate(location.state||'/')
           })
-          .catch((err) => console.log(err))
+          .catch(() => {
+            
+          })
           
       )
       .catch((err) => setErr(err.message));
