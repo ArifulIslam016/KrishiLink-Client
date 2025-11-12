@@ -4,6 +4,7 @@ import { LuSearch } from 'react-icons/lu';
 import CropCard from '../Components/CropCard/CropCard';
 import AuthContext from '../AuthContext/Authcontext';
 import NotFount from './404NotFount';
+import LoadingPage from './LoadingPage';
 
 const AllCrops = () => {
     const {user}=use(AuthContext)
@@ -11,10 +12,15 @@ const AllCrops = () => {
     const [searchValue,setSearchValue]=useState('')
     const [filteredCrops,setFilteredCrops]=useState([])
     const Instance=useSecureInstance()
+     const [fetchLoading,setFetchLoading]=useState(true)
     useEffect(()=>{
         Instance.get('/allcrops').then(data=>{setCrops(data.data)
+            setFetchLoading(false)
         })
     },[user,Instance])
+      if(fetchLoading){
+        return <LoadingPage></LoadingPage>
+    }
    const hanldeSearch=(e)=>{
     const value=e.target.value;
     setSearchValue(value)
@@ -26,7 +32,6 @@ if(searchValue===''){
             setFilteredCrops(filteredData)
 }
    }
-   console.log(filteredCrops)
     return (
         <div className='max-w-[1440px] mx-auto py-10'>
             <div className='flex justify-between'>

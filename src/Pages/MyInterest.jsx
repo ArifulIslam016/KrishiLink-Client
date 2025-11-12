@@ -9,10 +9,12 @@ const MyInterest = () => {
   const [interests, setinterest] = useState([]);
   const [crops, setcrops] = useState([]);
   const { user, loading } = use(AuthContext);
+   const [fetchLoading,setFetchLoading]=useState(true)
   const Instance = useSecureInstance();
   console.log(interests);
   useEffect(() => {
     Instance.get("allcrops").then((data) => {
+        setFetchLoading(false)
       setinterest(
         data.data.filter((crops) =>
           crops.interest?.some((crop) => crop.userEmail === user.email)
@@ -21,7 +23,7 @@ const MyInterest = () => {
       setcrops(data.data);
     });
   }, [user]);
-  if (loading) {
+  if (loading||fetchLoading) {
     return <LoadingPage></LoadingPage>;
   }
   if (!user) {

@@ -1,6 +1,6 @@
-import React, { use, useEffect } from "react";
+import React, { use,  } from "react";
 import AuthContext from "../AuthContext/Authcontext";
-import axios from "axios";
+
 import useSecureInstance from "../Hooks/SecureInstance";
 import { useNavigate } from "react-router";
 

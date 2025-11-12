@@ -11,13 +11,14 @@ const CropDetails = () => {
     const [CropInfo, setCropInfo]=useState(null)
     const Instance=useSecureInstance()
     const id=useParams().id
-
+ const [fetchLoading,setFetchLoading]=useState(true)
     useEffect(()=>{
        Instance.get(`/single-Crop/${id}`).then(data=>{
         setCropInfo(data.data)
+        setFetchLoading(false)
         })
     },[Instance,id])
-        if(!CropInfo){
+        if(!CropInfo||fetchLoading){
     return <LoadingPage></LoadingPage>
 }
     const {

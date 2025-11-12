@@ -11,6 +11,7 @@ import MyPosts from "../Pages/MyPosts";
 import CropDetails from "../Pages/CropDetails";
 import MyInterest from "../Pages/MyInterest";
 import MyProfile from "../Pages/MyProfile";
+import Errorpage from "../Pages/ErrorPage";
 
 export const router = createBrowserRouter([
   {
@@ -37,18 +38,35 @@ export const router = createBrowserRouter([
             <MyPosts></MyPosts>
           </PrivateProvider>
         ),
-      },{
-            path:'/detailed-post/:id',
-            element: <PrivateProvider><CropDetails></CropDetails></PrivateProvider>
-        },{
-            path:'my-interest',
-            element:<PrivateProvider><MyInterest></MyInterest></PrivateProvider>
-        },{
-            path:'/profile',
-            element:<PrivateProvider>
-                <MyProfile></MyProfile>
-            </PrivateProvider>
-        }
+      },
+      {
+        path: "/detailed-post/:id",
+        element: (
+          <PrivateProvider>
+            <CropDetails></CropDetails>
+          </PrivateProvider>
+        ),
+      },
+      {
+        path: "my-interest",
+        element: (
+          <PrivateProvider>
+            <MyInterest></MyInterest>
+          </PrivateProvider>
+        ),
+      },
+      {
+        path: "/profile",
+        element: (
+          <PrivateProvider>
+            <MyProfile></MyProfile>
+          </PrivateProvider>
+        ),
+      },
+      {
+        path: "*",
+        Component: Errorpage,
+      },
     ],
   },
   {
@@ -62,5 +80,9 @@ export const router = createBrowserRouter([
   {
     path: "/forgetPassword",
     Component: ForgetFrom,
+  },
+  {
+    path: "*",
+    Component: Errorpage,
   },
 ]);

@@ -3,6 +3,7 @@ import useSecureInstance from "../Hooks/SecureInstance";
 import AuthContext from "../AuthContext/Authcontext";
 import { MdDelete, MdModeEdit } from "react-icons/md";
 import Swal from "sweetalert2";
+import LoadingPage from "./LoadingPage";
 
 const MyPosts = () => {
     const modalrefarence=useRef()
@@ -10,11 +11,17 @@ const MyPosts = () => {
   const Instance = useSecureInstance();
   const [myPost, setMypost] = useState([]);
   const [clickedPost,setClickedPost]=useState(null)
+  const [fetchLoading,setFetchLoading]=useState(true)
   useEffect(() => {
     Instance.get(`/allcrops?email=${user.email}`).then((data) => {
       setMypost(data.data);
+      setFetchLoading(false)
     });
-  }, [user, Instance]);
+
+  }, [user, Instance,fetchLoading]);
+   if(fetchLoading){
+        return <LoadingPage></LoadingPage>
+    }
   const handleEdit=(post)=>{
     setClickedPost(post)
     modalrefarence.current.showModal()

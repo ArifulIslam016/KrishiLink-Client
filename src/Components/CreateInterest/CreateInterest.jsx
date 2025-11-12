@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import useSecureInstance from "../../Hooks/SecureInstance";
 import Swal from "sweetalert2";
+import LoadingPage from "../../Pages/LoadingPage";
 
 const CreateInterest = ({CropQuantity, user, id,owner }) => {
   const Instance = useSecureInstance();
+   const [fetchLoading,setFetchLoading]=useState(true)
   const[err,setErr]=useState('')
   const handleInterest = (e) => {
     e.preventDefault();
@@ -40,6 +42,7 @@ const CreateInterest = ({CropQuantity, user, id,owner }) => {
     
     Instance.post(`/CreateInterest/${id}`,newInterest).then(()=>{
         setErr('')
+        setFetchLoading(false)
         if (result.isConfirmed) {
        e.target.reset()
     Swal.fire({
@@ -52,7 +55,9 @@ const CreateInterest = ({CropQuantity, user, id,owner }) => {
         setErr(err.message)
     })
      setErr('')
-     
+     if(fetchLoading){
+    return <LoadingPage></LoadingPage>
+}
   
   }
 )}
