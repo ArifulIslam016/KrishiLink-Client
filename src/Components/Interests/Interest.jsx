@@ -2,26 +2,39 @@ import React, { useState } from "react";
 import useSecureInstance from "../../Hooks/SecureInstance";
 
 const Interest = ({ interest }) => {
-    console.log(interest)
     const [accpetedInterst, setAcceptedInteres]=useState(interest)
     console.log(accpetedInterst)
      console.log(accpetedInterst)
     const Instance=useSecureInstance()
-  const handleAccept=(cropId)=>{
+  const handleAccept=(cropId,interestId)=>{
     const afteraccept=interest
-        afteraccept[0].Status='Accepted'
+        // afteraccept[0].Status='Accepted'
+        afteraccept.m
     Instance.put('/iterest-update',afteraccept[0]).then(data=>{
         console.log(data.data)
-        setAcceptedInteres(afteraccept)
+         setAcceptedInteres((prev) =>
+        prev.map((singleInterest) =>
+          singleInterest._id === interestId ? { ...singleInterest, Status: "accepted" } : singleInterest
+        )
+      );
     }).catch(err=>{
         console.log(err)    
     })
     
   }
-  const handleReject=(cropId,interestId)=>{
-
+  const handleReject=(CropId,interestId)=>{
+    Instance.put('/reject-Update',{
+        CropId,interestId
+    }).then((data)=>{
+        console.log(data)
+        setAcceptedInteres((prev) =>
+        prev.map((singleInterest) =>
+          singleInterest._id === interestId ? { ...singleInterest, Status: "rejected" } : singleInterest
+        )
+      );
+    }).catch(err=>console.log(err))
   }
-  console.log(accpetedInterst)
+//   console.log(accpetedInterst)
   return (
     <div className="max-w-[1200px] mx-auto">
       <h1 className="text-2xl font-bold">Total {accpetedInterst.length} interst found</h1>
@@ -33,6 +46,7 @@ const Interest = ({ interest }) => {
               <th>SL</th>
               <th>Buyer Name</th>
               <th>Quantity</th>
+              <th>Tptal Price</th>
               <th>Status</th>
               <th>Message</th>
               <th>Actions</th>
@@ -64,14 +78,18 @@ const Interest = ({ interest }) => {
                     <br />
                   </td>
                   <td>
-                    {singleInterest.Status=="pending"?<h1 className="bg-amber-300 rounded-2xl w-fit px-2  pb-1 ">{singleInterest.Status}</h1>:<h1 className="bg-green-500 rounded-2xl w-fit px-2  pb-1 ">{singleInterest.Status}</h1>}
+                    {singleInterest?.totalPrice?singleInterest.totalPrice:""}
+                    <br />
+                  </td>
+                  <td>
+                    {singleInterest.Status=="pending"?<h1 className="bg-amber-300 rounded-2xl w-fit px-2  pb-1 ">{singleInterest.Status}</h1>:singleInterest.Status=="accepted"?<h1 className="bg-green-500 rounded-2xl w-fit px-2  pb-1 ">{singleInterest.Status}</h1>:<h1 className="bg-red-500 rounded-2xl w-fit px-2  pb-1 ">{singleInterest.Status}</h1>}
                   </td>
                   <td>
                     {singleInterest.message}
                   </td>
                   <th>
                     {singleInterest.Status=="pending"? <div className="space-x-2 flex">
-                                  <button onClick={()=>handleAccept(singleInterest.CropId)}  className="btn btn-outline text-green-500 btn-xs">
+                                  <button onClick={()=>handleAccept(singleInterest.CropId,singleInterest._id)}  className="btn btn-outline text-green-500 btn-xs">
                                     
                                     Accept
                                   </button>
@@ -79,7 +97,7 @@ const Interest = ({ interest }) => {
                                    
                                    Reject
                                   </button>
-                                </div>:<h1>No action availabe</h1>}
+                                </div>:<h1>Actions are availabe only for pending interests</h1>}
                    
                   </th>
                 </tr>

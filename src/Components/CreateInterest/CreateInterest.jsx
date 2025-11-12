@@ -3,7 +3,7 @@ import useSecureInstance from "../../Hooks/SecureInstance";
 import Swal from "sweetalert2";
 import LoadingPage from "../../Pages/LoadingPage";
 
-const CreateInterest = ({CropQuantity, user, id,owner }) => {
+const CreateInterest = ({CropQuantity,pricePerUnit, user, id,owner }) => {
   const Instance = useSecureInstance();
    const [fetchLoading,setFetchLoading]=useState(true)
   const[err,setErr]=useState('')
@@ -11,6 +11,11 @@ const CreateInterest = ({CropQuantity, user, id,owner }) => {
     e.preventDefault();
     const quantity = e.target.quantity.value;
     const message = e.target.message.value;
+    const totalPrice=parseInt(pricePerUnit)-parseInt(quantity)
+      if(owner.ownerEmail===user.email){
+        setErr("Owner Cant Show interest")
+        return
+    }
     if(quantity<1){
         setErr("Quantity Should be atleast one")
         return
@@ -19,15 +24,12 @@ const CreateInterest = ({CropQuantity, user, id,owner }) => {
         setErr('Stock is less than your quantity')
         return
     }
-    if(owner.ownerEmail===user.email){
-        setErr("Owner Cant Show interest")
-        return
-    }
     const newInterest={
         userEmail:user.email,
         userName:user.displayName,
         quantity:quantity,
         message:message,
+        totalPrice:totalPrice,
         Status:'pending'
     }
     Swal.fire({
@@ -52,7 +54,7 @@ const CreateInterest = ({CropQuantity, user, id,owner }) => {
     })
   }
     }).catch(err=>{
-        setErr(err.message)
+        setErr(err.response.data.message)
     })
      setErr('')
      if(fetchLoading){
