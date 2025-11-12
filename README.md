@@ -3,9 +3,9 @@ KrishiLink is a modern, agriculture-focused platform build to connect out respec
 Live Link: https://krishi-link-3accb.web.app
 
 **Features:**
-User-Friendly Interface
-1. Crop Management
-2. Marketplace Access
-3. User Authentication
-4. Profile Management  
-5. Live Updates
+1.User-Friendly Interface
+2. Crop Management
+3. Marketplace Access
+4. User Authentication
+5. Profile Management  
+6. Live Updates
