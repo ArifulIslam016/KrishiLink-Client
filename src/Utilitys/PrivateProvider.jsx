@@ -6,8 +6,6 @@ import LoadingPage from '../Pages/LoadingPage';
 const PrivateProvider = ({children}) => {
    
     const {user,loading}=use(AuthContext)
-    console.log(loading)
-    console.log(user)
 if(loading){
     return <LoadingPage></LoadingPage>
 }

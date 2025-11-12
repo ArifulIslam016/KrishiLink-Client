@@ -1,2 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
+.active{
+  background: linear-gradient(to right, #166534, #22C55E, #A3E635);
+    border-radius: 4px;
+    padding:4px;
+}

@@ -9,6 +9,8 @@ import Addcrops from "../Pages/Addcrops";
 import AllCrops from "../Pages/AllCrops";
 import MyPosts from "../Pages/MyPosts";
 import CropDetails from "../Pages/CropDetails";
+import MyInterest from "../Pages/MyInterest";
+import MyProfile from "../Pages/MyProfile";
 
 export const router = createBrowserRouter([
   {
@@ -38,6 +40,14 @@ export const router = createBrowserRouter([
       },{
             path:'/detailed-post/:id',
             element: <PrivateProvider><CropDetails></CropDetails></PrivateProvider>
+        },{
+            path:'my-interest',
+            element:<PrivateProvider><MyInterest></MyInterest></PrivateProvider>
+        },{
+            path:'/profile',
+            element:<PrivateProvider>
+                <MyProfile></MyProfile>
+            </PrivateProvider>
         }
     ],
   },

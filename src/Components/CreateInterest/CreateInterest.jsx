@@ -43,7 +43,7 @@ const CreateInterest = ({CropQuantity, user, id,owner }) => {
         if (result.isConfirmed) {
        e.target.reset()
     Swal.fire({
-      title: "Deleted!",
+      title: "Submit!",
       text: "Sucessfully Submitted.",
       icon: "success"
     })
@@ -90,7 +90,7 @@ const CreateInterest = ({CropQuantity, user, id,owner }) => {
             type="number"
             name="quantity"
             required
-            placeholder="Crop Name"
+            placeholder="Quantity you need"
             className="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500"
           />
         </div>
