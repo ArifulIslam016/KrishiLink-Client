@@ -51,7 +51,16 @@ const MyInterest = () => {
 
   return (
     <div className="max-w-[1440px]  mx-auto py-12">
-      <details className="dropdown rounded-xl flex w-fit mx-auto bg-blue-200 ">
+      <h1 className="text-2xl font-bold">
+        Total {allcrops.length} interst found
+      </h1>
+      {allcrops.length === 0 ? (
+        <h1 className="text-4xl font-extrabold text-center my-10 text-gray-700">
+          You haven't any Interest Yet
+        </h1>
+      ) : (
+        <div className="overflow-x-auto">
+           <details className="dropdown rounded-xl mb-2 mg flex w-fit mx-auto bg-blue-200 ">
         <summary className="btn  bg-blue-200">Sort by</summary>
         <ul className="menu dropdown-content bg-transparent space-y-1 rounded-box z-1 w-52 p-2 shadow-sm">
           <li className="bg-blue-300 rounded-xl">
@@ -71,15 +80,6 @@ const MyInterest = () => {
           </li>
         </ul>
       </details>
-      <h1 className="text-2xl font-bold">
-        Total {allcrops.length} interst found
-      </h1>
-      {allcrops.length === 0 ? (
-        <h1 className="text-4xl font-extrabold text-center my-10 text-gray-700">
-          You haven't any Interest Yet
-        </h1>
-      ) : (
-        <div className="overflow-x-auto">
           <table className="table lg:ml-10">
             {/* head */}
             <thead>

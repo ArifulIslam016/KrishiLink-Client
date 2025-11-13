@@ -97,7 +97,11 @@ const handleDelete=(id)=>{
 
 }
   
-
+if(myPost?.length===0){
+  return   <h1 className="text-4xl font-extrabold text-center my-10 text-gray-700">
+          You don't any post Yet
+        </h1>
+}
 
   return (
     <div className="max-w-[1440px] mx-auto py-10">

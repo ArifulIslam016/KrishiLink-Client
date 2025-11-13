@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
  import image2  from '../../assets/greenhouseculimage.jpeg'
- import image3  from '../../assets/cutting.jpg'
+//  import image3  from '../../assets/cutting.jpg'
  import image4  from '../../assets/after.jpg'
  import image5  from '../../assets/after2.jpg'
  import image6  from '../../assets/after3.jpg'
@@ -28,7 +28,7 @@ const Slider = () => {
       
       className="mySwiper">
         <SwiperSlide className='flex justify-center items-center'><img className=' max-w-[300px] max-h-[250px] mx-auto my-auto md:max-w-[400px] md:max-h-[350px] lg:max-w-[600px] lg:max-h-[500px] rounded-2xl' src={image2} alt="" /></SwiperSlide>
-        <SwiperSlide className='flex justify-center items-center'><img className=' max-w-[300px] max-h-[250px] mx-auto my-auto md:max-w-[400px] md:max-h-[350px] lg:max-w-[600px] lg:max-h-[500px] rounded-2xl' src={image3} alt="" /></SwiperSlide>
+        <SwiperSlide className='flex justify-center items-center'><img className=' max-w-[300px] max-h-[250px] mx-auto my-auto md:max-w-[400px] md:max-h-[350px] lg:max-w-[600px] lg:max-h-[500px] rounded-2xl' src="https://i.ibb.co.com/tP2zYT9L/farming10.jpg" alt="" /></SwiperSlide>
         <SwiperSlide className='flex justify-center items-center'><img className=' max-w-[300px] max-h-[250px] mx-auto my-auto md:max-w-[400px] md:max-h-[350px] lg:max-w-[600px] lg:max-h-[500px] rounded-2xl' src={image4} alt="" /></SwiperSlide>
         <SwiperSlide className='flex justify-center items-center'><img className=' max-w-[300px] max-h-[250px] mx-auto my-auto md:max-w-[400px] md:max-h-[350px] lg:max-w-[600px] lg:max-h-[500px] rounded-2xl' src={image5} alt="" /></SwiperSlide>
         <SwiperSlide className='flex justify-center items-center'><img className=' max-w-[300px] max-h-[250px] mx-auto my-auto md:max-w-[400px] md:max-h-[350px] lg:max-w-[600px] lg:max-h-[500px] rounded-2xl' src={image6} alt="" /></SwiperSlide>
