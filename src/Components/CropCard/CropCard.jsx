@@ -28,7 +28,7 @@ const CropCard = ({crop}) => {
     <h2 className="text-xl font-semibold text-gray-800 mb-2">{name}</h2>
     <p className="text-gray-600 mb-1"><span className="font-medium">Type:</span> {type}</p>
     <p className="text-gray-600 mb-1"><span className="font-medium">Price:</span> {pricePerUnit} / {unit}</p>
-    <p className="text-gray-600 mb-1"><span className="font-medium">Quantity:</span> {quantity}</p>
+    <p className="text-gray-600 mb-1"><span className="font-medium">Quantity:</span> {quantity}  {unit}</p>
     <p className="text-gray-600 mb-2"><span className="font-medium">Location:</span> {location}</p>
     <p className="text-gray-700 mb-3 text-sm line-clamp-2">Description:{description}</p>
 

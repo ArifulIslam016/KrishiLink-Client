@@ -113,7 +113,7 @@ const MyInterest = () => {
                       <br />
                     </td>
                     <td>
-                      {crop.quantity}
+                      {crop.quantity} {crop.unit}
                       <br />
                     </td>
                     <td>
