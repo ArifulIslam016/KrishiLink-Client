@@ -24,7 +24,7 @@ const AllCrops = () => {
    const hanldeSearch=(e)=>{
     const value=e.target.value;
     setSearchValue(value)
-if(searchValue===''){
+if(value===''){
     setFilteredCrops([])
     return
 }else{
@@ -37,7 +37,7 @@ if(searchValue===''){
             <div className='flex justify-between'>
            <h1 className='text-gray-800 text-2xl'>Total {allcrops.length} crops found</h1>
            <div className='relative'>
-            <input type="search" name='search' defaultValue='' onChange={hanldeSearch} className='input outline-2 outline-gray-900 focus:outline-3 focus:outline-green-600' placeholder='Search'/>
+            <input type="search" name='search' value={searchValue} onChange={hanldeSearch} className='input outline-2 outline-gray-900 focus:outline-3 focus:outline-green-600' placeholder='Search'/>
             <LuSearch className='absolute top-3 left-40 text-gray-800' />
            </div>
         </div>
