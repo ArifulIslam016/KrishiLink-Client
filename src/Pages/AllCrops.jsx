@@ -13,13 +13,17 @@ const AllCrops = () => {
   const [filteredCrops, setFilteredCrops] = useState([]);
   const Instance = useSecureInstance();
   const [fetchLoading, setFetchLoading] = useState(true);
-  const [type,setType]=useState('')
+  const [type, setType] = useState("");
+  const [sortby, setsorby] = useState("");
+  const [order, setOrder] = useState("");
   useEffect(() => {
-    Instance.get(`/allcrops?type=${type}`).then((data) => {
-      setCrops(data.data);
-      setFetchLoading(false);
-    });
-  }, [user, Instance,type]);
+    Instance.get(`/allcrops?type=${type}&sortby=${sortby}&order=${order}`).then(
+      (data) => {
+        setCrops(data.data);
+        setFetchLoading(false);
+      }
+    );
+  }, [user, Instance, type, sortby, order]);
   if (fetchLoading) {
     return <LoadingPage></LoadingPage>;
   }
@@ -66,16 +70,68 @@ const AllCrops = () => {
                 className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
               >
                 <li>
-                  <button onClick={()=>setType("")}>All</button>
+                  <button onClick={() => setType("")}>All</button>
                 </li>
                 <li>
-                  <button onClick={()=>setType("Vegetable")}>Vegetable</button>
+                  <button onClick={() => setType("Vegetable")}>
+                    Vegetable
+                  </button>
                 </li>
                 <li>
-                  <button onClick={()=>setType("Fruit")}>Fruit</button>
+                  <button onClick={() => setType("Fruit")}>Fruit</button>
                 </li>
                 <li>
-                  <button onClick={()=>setType("Grain")}>Grains</button>
+                  <button onClick={() => setType("Grain")}>Grains</button>
+                </li>
+              </ul>
+            </div>
+            <div className="dropdown dropdown-bottom dropdown-end">
+              <div tabIndex={0} role="button" className="btn m-1">
+                Sort{" "}
+              </div>
+              <ul
+                tabIndex="-1"
+                className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+              >
+                <li>
+                  <button
+                    onClick={() => {
+                      setsorby("createdAt");
+                      setOrder("asc");
+                    }}
+                  >
+                    Date Frist to Last
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => {
+                      setsorby("createdAt");
+                      setOrder("desc");
+                    }}
+                  >
+                    Date Last to Frist
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => {
+                      setsorby("quantity");
+                      setOrder("asc");
+                    }}
+                  >
+                    Quantity Small
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => {
+                      setsorby("quantity");
+                      setOrder("desc");
+                    }}
+                  >
+                    Quantity Large
+                  </button>
                 </li>
               </ul>
             </div>
