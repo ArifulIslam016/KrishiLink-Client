@@ -138,10 +138,10 @@ const AllCrops = () => {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 py-10">
         {
           searchValue.length !== 0 && filteredCrops.length === 0 ? (
-            <div className="md:col-span-2 lg:col-span-3">
+            <div className="md:col-span-2 lg:col-span-4">
               <NotFount></NotFount>
             </div>
           ) : filteredCrops.length > 0 ? (

@@ -16,7 +16,7 @@ const CropCard = ({crop}) => {
       owner,
     }=crop
     return (
-     <div className="bg-gray-200 rounded-xl shadow-md hover:shadow-xl transition p-5 m-2 flex flex-col">
+     <div className="bg-gray-100 rounded-xl shadow-md hover:shadow-xl transition p-5 m-2 flex flex-col">
   
     <div className="h-40 w-full mb-4 overflow-hidden rounded-lg">
       <img
