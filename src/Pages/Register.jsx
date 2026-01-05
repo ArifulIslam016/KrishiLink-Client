@@ -4,7 +4,7 @@ import { Link, Navigate, useLocation, useNavigate } from "react-router";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import AuthContext from "../AuthContext/Authcontext";
 import toast from "react-hot-toast";
-// import { AuthContext } from "../AuthContext/AunContext";
+
 
 const Register = () => {
   const location=useLocation()
