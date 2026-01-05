@@ -26,15 +26,15 @@ const Footer = () => {
       <nav>
         <h6 className="footer-title">Social</h6>
         <div className="grid grid-flow-col gap-4 text-2xl">
-          <a>
+          <a href="https://x.com/ArifulIsla6692">
             <FaXTwitter />
 
           </a>
-          <a>
+          <a href="https://www.youtube.com/@ArifulIslam-hp1sh">
            <AiFillYoutube />
 
           </a>
-          <a>
+          <a href="https://www.facebook.com/ariful.islam.708366">
            <FaFacebook />
 
           </a>

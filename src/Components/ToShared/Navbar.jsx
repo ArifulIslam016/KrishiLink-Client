@@ -20,12 +20,12 @@ const Navbar = () => {
           >
             All crops
           </NavLink>
-          <NavLink
+          {/* <NavLink
             className="mr-3 font-semibold text-[#FFFFFF]"
             to={"/profile"}
           >
             Profile
-          </NavLink>
+          </NavLink> */}
           <NavLink
             className="mr-3 font-semibold text-[#FFFFFF]"
             to={"/addcrops"}
@@ -123,7 +123,7 @@ const Navbar = () => {
               <div className="w-10 rounded-full">
                 <img
                   alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                  src={user.photoURL}
                 />
               </div>
             </div>
@@ -132,7 +132,7 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 space-y-1 mt-3 w-52 p-2 shadow"
             >
               <li>
-                <Link className="btn bg-gradient-to-r outline-0 border-0 from-[#166534] via-[#22C55E] to-[#A3E635] text-white ">
+                <Link to={"/profile"} className="btn bg-gradient-to-r outline-0 border-0 from-[#166534] via-[#22C55E] to-[#A3E635] text-white ">
                   Profile{" "}
                 </Link>
               </li>
