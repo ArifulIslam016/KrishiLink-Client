@@ -6,13 +6,11 @@ const DemoLogin = () => {
   const { demoLogin } = use(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
-  console.log(location)
-  const handleDemologin = () => {
+  const handleDemologin = async () => {
     demoLogin().then(() => {
       navigate(location?.state || "/");
     });
   };
-    console.log("after call",location)
   return (
     <>
       <button onClick={handleDemologin} className="btn btn-outline">

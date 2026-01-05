@@ -1,7 +1,7 @@
 import React, { use } from "react";
 import { Link, NavLink } from "react-router";
 import AuthContext from "../../AuthContext/Authcontext";
-
+import userImg from '../.././assets/user.png'
 const Navbar = () => {
   const { Signout, user } = use(AuthContext);
   const hanldesingOut = () => {
@@ -123,7 +123,7 @@ const Navbar = () => {
               <div className="w-10 rounded-full">
                 <img
                   alt="Tailwind CSS Navbar component"
-                  src={user.photoURL}
+                  src={user.photoURL||userImg}
                 />
               </div>
             </div>

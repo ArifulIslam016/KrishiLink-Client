@@ -21,7 +21,7 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, Password);
   };
   const demoLogin = () => {
-    signInAnonymously(auth);
+   return signInAnonymously(auth);
   };
 
   const Signin = (email, Password) => {

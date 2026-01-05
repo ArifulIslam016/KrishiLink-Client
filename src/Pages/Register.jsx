@@ -4,6 +4,7 @@ import { Link, Navigate, useLocation, useNavigate } from "react-router";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import AuthContext from "../AuthContext/Authcontext";
 import toast from "react-hot-toast";
+import DemoLogin from "../Components/DemoLogin/DemoLogin";
 
 
 const Register = () => {
@@ -154,6 +155,7 @@ const Register = () => {
             </svg>
             Login with Google
           </button>
+          <DemoLogin></DemoLogin>
           <span>
             Alredy Have An Account ?{" "}
             <Link to={"/login"} className="text-secondary">
