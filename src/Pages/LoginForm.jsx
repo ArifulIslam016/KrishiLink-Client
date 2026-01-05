@@ -117,6 +117,7 @@ const Login = () => {
             </svg>
             Login with Google
           </button>
+          <DemoLogin state={location.pathname}></DemoLogin>
           <p>
             Dont’t Have An Account ?{" "}
             <Link to={"/register"} className="text-secondary">
@@ -125,7 +126,6 @@ const Login = () => {
           </p>
           {eror && <p className="text-red-500">{eror}</p>}
         </div>
-        <DemoLogin></DemoLogin>
       </div>
     </div>
   );
