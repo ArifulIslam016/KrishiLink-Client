@@ -11,19 +11,60 @@ const Navbar = () => {
     <>
       {user ? (
         <>
-          <NavLink className='mr-3 font-semibold text-[#FFFFFF]' to={"/"}>Home</NavLink>
-          <NavLink className='mr-3 font-semibold text-[#FFFFFF]' to={"/allcrops"}>All crops</NavLink>
-          <NavLink className='mr-3 font-semibold text-[#FFFFFF]' to={"/profile"}>Profile</NavLink>
-          <NavLink className='mr-3 font-semibold text-[#FFFFFF]' to={"/addcrops"}>Add crops</NavLink>
-          <NavLink className='mr-3 font-semibold text-[#FFFFFF]' to={"/my-posts"}>My Posts</NavLink>
-          <NavLink className='mr-3 font-semibold text-[#FFFFFF]' to={"/my-interest"}>My interests</NavLink>
+          <NavLink className="mr-3 font-semibold text-[#FFFFFF]" to={"/"}>
+            Home
+          </NavLink>
+          <NavLink
+            className="mr-3 font-semibold text-[#FFFFFF]"
+            to={"/allcrops"}
+          >
+            All crops
+          </NavLink>
+          <NavLink
+            className="mr-3 font-semibold text-[#FFFFFF]"
+            to={"/profile"}
+          >
+            Profile
+          </NavLink>
+          <NavLink
+            className="mr-3 font-semibold text-[#FFFFFF]"
+            to={"/addcrops"}
+          >
+            Add crops
+          </NavLink>
+          <NavLink
+            className="mr-3 font-semibold text-[#FFFFFF]"
+            to={"/my-posts"}
+          >
+            My Posts
+          </NavLink>
+          <NavLink
+            className="mr-3 font-semibold text-[#FFFFFF]"
+            to={"/my-interest"}
+          >
+            My interests
+          </NavLink>
         </>
       ) : (
         <>
-          <NavLink className='mr-3 font-semibold text-[#FFFFFF]' to={"/"}>Home</NavLink>
-          <NavLink className='mr-3 font-semibold text-[#FFFFFF]' to={"/login"}>Login</NavLink>
-          <NavLink className='mr-3 font-semibold text-[#FFFFFF]' to={"/allcrops"}>All crops</NavLink>
-          <NavLink className='mr-3 font-semibold text-[#FFFFFF]' to={"/register"}>Register</NavLink>
+          <NavLink className="mr-3 font-semibold text-[#FFFFFF]" to={"/"}>
+            Home
+          </NavLink>
+          <NavLink className="mr-3 font-semibold text-[#FFFFFF]" to={"/login"}>
+            Login
+          </NavLink>
+          <NavLink
+            className="mr-3 font-semibold text-[#FFFFFF]"
+            to={"/allcrops"}
+          >
+            All crops
+          </NavLink>
+          <NavLink
+            className="mr-3 font-semibold text-[#FFFFFF]"
+            to={"/register"}
+          >
+            Register
+          </NavLink>
         </>
       )}
     </>
@@ -60,7 +101,11 @@ const Navbar = () => {
           to={"/"}
           className="btn btn-ghost text-xl md:text-3xl flex items-center lg:text-4xl font-extrabold bg-gradient-to-r from-[#166534] via-[#22C55E] to-[#A3E635] bg-clip-text text-transparent"
         >
-           <img src="https://i.ibb.co.com/b5JBNTz4/krishi.png" className="w-10 rounded-full" alt="" />
+          <img
+            src="https://i.ibb.co.com/b5JBNTz4/krishi.png"
+            className="w-10 rounded-full"
+            alt=""
+          />
           Krishi Link
         </Link>
       </div>
@@ -69,12 +114,38 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          <Link
-            onClick={hanldesingOut}
-            className="btn bg-gradient-to-r outline-0 border-0 from-[#166534] via-[#22C55E] to-[#A3E635] text-white "
-          >
-            Logout
-          </Link>
+          <div className="dropdown dropdown-end">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar"
+            >
+              <div className="w-10 rounded-full">
+                <img
+                  alt="Tailwind CSS Navbar component"
+                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                />
+              </div>
+            </div>
+            <ul
+              tabIndex="-1"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 space-y-1 mt-3 w-52 p-2 shadow"
+            >
+              <li>
+                <Link className="btn bg-gradient-to-r outline-0 border-0 from-[#166534] via-[#22C55E] to-[#A3E635] text-white ">
+                  Profile{" "}
+                </Link>
+              </li>
+              <li>
+                <Link
+                  onClick={hanldesingOut}
+                  className="btn bg-gradient-to-r outline-0 border-0 from-[#166534] via-[#22C55E] to-[#A3E635] text-white "
+                >
+                  Logout
+                </Link>
+              </li>
+            </ul>
+          </div>
         ) : (
           <Link
             to={"login"}
