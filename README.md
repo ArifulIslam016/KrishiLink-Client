@@ -1,4 +1,4 @@
-
+<!-- 
 # KrishiLink
 Live Link: https://krishi-link-3accb.web.app
 
@@ -50,4 +50,4 @@ KrishiLink is a modern full-stack, agriculture-focused platform built to connect
 
 ## How to Run Locally
 1. Clone the repository:  
-git clone https://github.com/ArifulIslam016/KrishiLink-Client.git
+git clone https://github.com/ArifulIslam016/KrishiLink-Client.git -->
